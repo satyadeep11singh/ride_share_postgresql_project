@@ -2,6 +2,12 @@
 
 A complete **PostgreSQL data warehouse** for a ride-sharing platform (similar to Uber/Lyft) featuring **star schema design**, **ETL pipelines**, and **interactive analytics dashboards**.
 
+## 🌐 View Live Dashboard
+
+**[➡️ Click here to view interactive analytics reports](https://satyadeep11singh.github.io/ride_share_postgresql_project/)**
+
+Hosted on GitHub Pages with 5 interactive Plotly dashboards showing driver efficiency, peak hours, and customer analysis.
+
 ---
 
 ## 📋 Project Overview
@@ -49,7 +55,15 @@ ride_share_sql_project/
 
 ---
 
-## 🏗️ Architecture
+## 📥 Data Source
+
+The CSV files used in this project are sourced from:
+
+**[Ride-Sharing Platform Data - Kaggle](https://www.kaggle.com/datasets/adnananam/ride-sharing-platform-data)**
+
+Credit: Dataset provided by Kaggle community. Contains synthetic ride-sharing platform data with 50,000 rides, 10,000 users, and 300 drivers.
+
+---
 
 ### **Data Layers**
 
@@ -166,13 +180,13 @@ Open `analytics_reports/*.html` files in your browser to view interactive charts
 
 ## 📊 Generated Reports
 
-| Report | Chart Type | Key Metrics |
-|--------|-----------|-------------|
-| **01_driver_efficiency.html** | Scatter Plot | Top 10 most efficient drivers, wait times, ride count |
-| **02_peak_hours_heatmap.html** | Heatmap | Revenue by day of week and hour of day |
-| **03_top_peak_hours.html** | Bar Chart | Top 20 peak hours ranked by revenue |
-| **04_vip_customers.html** | Dual Chart | Top 5 customers: spending vs. behavior |
-| **05_vip_revenue_distribution.html** | Pie Chart | Revenue split among top 5 VIP customers |
+| Report | Chart Type | Key Metrics | Link |
+|--------|-----------|-------------|------|
+| **Driver Efficiency** | Scatter Plot | Top 10 most efficient drivers, wait times, ride count | [View 📊](https://satyadeep11singh.github.io/ride_share_postgresql_project/01_driver_efficiency.html) |
+| **Peak Hours Heatmap** | Heatmap | Revenue by day of week and hour of day | [View 🔥](https://satyadeep11singh.github.io/ride_share_postgresql_project/02_peak_hours_heatmap.html) |
+| **Top Peak Hours** | Bar Chart | Top 20 peak hours ranked by revenue | [View 📈](https://satyadeep11singh.github.io/ride_share_postgresql_project/03_top_peak_hours.html) |
+| **VIP Customers** | Dual Chart | Top 5 customers: spending vs. behavior | [View ⭐](https://satyadeep11singh.github.io/ride_share_postgresql_project/04_vip_customers.html) |
+| **VIP Revenue Distribution** | Pie Chart | Revenue split among top 5 VIP customers | [View 💰](https://satyadeep11singh.github.io/ride_share_postgresql_project/05_vip_revenue_distribution.html) |
 
 ---
 

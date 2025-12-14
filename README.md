@@ -262,11 +262,19 @@ Identifies VIP customers for loyalty programs based on lifetime value.
 - `dim_driver`: Vehicle join, availability flags
 - ON CONFLICT ensures idempotency
 
-### **05 - Fact Loading (Advanced ETL)**
+### **05 - Fact Loading (Advanced ETL) - BUGFIX**
 - 3 CTEs for data transformation pipeline
 - Window function (LAG) calculates driver turnaround times
 - Peak hour flag for surge pricing analysis
 - INSERT 50K rows with calculated metrics
+
+**🐛 BUG FIX (v1.1):** Rating Data Integration
+- **Issue:** fact_rides.average_driver_rating was 100% NULL (50,000 rows)
+- **Root Cause:** ETL pipeline never populated rating values from raw_ratings table
+- **Solution:** Modified 03_etl_transform.sql base_rides_data CTE to LEFT JOIN raw_ratings
+- **Impact:** All 50,000 fact_rides now contain actual driver ratings (avg: 3.01, range: 1-5)
+- **Verification:** Data quality queries in 07_analytics_reporting_queries.sql now show real quality metrics
+- **Affected Reports:** Q6 (DENSE_RANK quality tiers), Q12 (LAST_VALUE quality trends) now display accurate data
 
 ### **06 - Indexes & Views**
 - 4 single-column indexes on foreign keys

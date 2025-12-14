@@ -6,7 +6,7 @@ A complete **PostgreSQL data warehouse** for a ride-sharing platform (similar to
 
 **[➡️ Click here to view interactive analytics reports](https://satyadeep11singh.github.io/ride_share_postgresql_project/)**
 
-Hosted on GitHub Pages with 5 interactive Plotly dashboards showing driver efficiency, peak hours, and customer analysis.
+Hosted on GitHub Pages with 15 interactive Plotly dashboards showing driver efficiency, peak hours, customer analysis, and advanced window function analytics.
 
 ---
 
@@ -25,7 +25,7 @@ This project demonstrates modern data engineering practices:
 - 10,000 unique users
 - 300 drivers tracked
 - 278 unique dates (9+ months of data)
-- 5 interactive HTML reports generated
+- 15 interactive HTML reports generated
 
 ---
 
@@ -47,10 +47,9 @@ ride_share_sql_project/
 │   ├── vehicles.csv       (300 rows)
 │   ├── rides.csv          (50,000 rows)
 │   └── ratings.csv        (15,000 rows)
-├── 08_analytics_dashboard.py   # Python Plotly visualization script
-├── analytics_reports/          # Generated HTML reports
-├── README.md                   # This file
-└── .gitignore                  # Git ignore file
+├── docs/                                      # GitHub Pages hosted HTML reports
+├── analytics_dashboard.py                     # Unified dashboard (all 15 reports)
+└── README.md
 ```
 
 ---
@@ -105,7 +104,7 @@ Credit: Dataset provided by Kaggle community. Contains synthetic ride-sharing pl
                  │
 ┌────────────────▼────────────────────────┐
 │   Interactive Dashboards (Python)       │
-│  5 HTML Reports with Plotly Charts      │
+│  15 HTML Reports with Plotly Charts     │
 └─────────────────────────────────────────┘
 ```
 
@@ -170,15 +169,17 @@ pip install pandas plotly psycopg2 python-dotenv
 # DB_PASSWORD=<password>
 # DB_NAME=ride_share_project
 
-# Run dashboard generator
-python 08_analytics_dashboard.py
+# Run unified dashboard generator (generates all 15 reports)
+python analytics_dashboard.py
 ```
 
-Open `analytics_reports/*.html` files in your browser to view interactive charts.
+Open `docs/*.html` files in your browser to view interactive charts.
 
 ---
 
 ## 📊 Generated Reports
+
+### **Basic Reports (1-5)**
 
 | Report | Chart Type | Key Metrics | Link |
 |--------|-----------|-------------|------|
@@ -187,6 +188,20 @@ Open `analytics_reports/*.html` files in your browser to view interactive charts
 | **Top Peak Hours** | Bar Chart | Top 20 peak hours ranked by revenue | [View 📈](https://satyadeep11singh.github.io/ride_share_postgresql_project/03_top_peak_hours.html) |
 | **VIP Customers** | Dual Chart | Top 5 customers: spending vs. behavior | [View ⭐](https://satyadeep11singh.github.io/ride_share_postgresql_project/04_vip_customers.html) |
 | **VIP Revenue Distribution** | Pie Chart | Revenue split among top 5 VIP customers | [View 💰](https://satyadeep11singh.github.io/ride_share_postgresql_project/05_vip_revenue_distribution.html) |
+
+### **Advanced Reports (6-15) - Window Functions**
+
+| Report | Window Function | Key Metrics | Link |
+|--------|-----------------|-------------|------|
+| **Driver Leaderboard** | ROW_NUMBER | Unique rank for every driver by efficiency | [View 🏆](https://satyadeep11singh.github.io/ride_share_postgresql_project/06_driver_leaderboard.html) |
+| **Revenue Tier Ranks** | RANK | Revenue tiers with ties at same level | [View 🎯](https://satyadeep11singh.github.io/ride_share_postgresql_project/07_revenue_tier_ranks.html) |
+| **Quality Tier Distribution** | DENSE_RANK | Consolidated quality tiers without gaps | [View ⚡](https://satyadeep11singh.github.io/ride_share_postgresql_project/08_quality_tier_distribution.html) |
+| **Commission Percentiles** | PERCENT_RANK | Relative position as percentage (0-100%) | [View 📊](https://satyadeep11singh.github.io/ride_share_postgresql_project/09_commission_percentiles.html) |
+| **Efficiency Quartiles** | CUME_DIST | Cumulative distribution of driver performance | [View 📉](https://satyadeep11singh.github.io/ride_share_postgresql_project/10_driver_efficiency_quartiles.html) |
+| **Customer Value Segments** | NTILE | Customers grouped into spending quartiles | [View 🎨](https://satyadeep11singh.github.io/ride_share_postgresql_project/11_customer_value_segments.html) |
+| **Driver Progression** | FIRST_VALUE | First ride earnings vs. current performance | [View 📍](https://satyadeep11singh.github.io/ride_share_postgresql_project/13_driver_progression.html) |
+| **Quality Trend Alerts** | LAST_VALUE | Drivers with declining rating trends | [View ⚠️](https://satyadeep11singh.github.io/ride_share_postgresql_project/14_quality_trend_alerts.html) |
+| **Driver Milestones** | NTH_VALUE | Lifecycle progression (1st, 10th, 50th, 100th ride) | [View 🎯](https://satyadeep11singh.github.io/ride_share_postgresql_project/15_driver_milestones.html) |
 
 ---
 
@@ -288,16 +303,19 @@ Identifies VIP customers for loyalty programs based on lifetime value.
 
 ---
 
-## 🐍 Python Dashboard (08)
+## 🐍 Python Dashboard
 
 **Framework:** Plotly Express + Pandas  
 **Database Driver:** psycopg2  
-**Output:** Interactive HTML reports  
+**Output:** 15 Interactive HTML reports (5 basic + 10 advanced)
+
+**File:** `analytics_dashboard.py` (Unified dashboard generator)
 
 **Key Classes:**
-- `RideShareAnalytics`: Manages database connections and visualization generation
-- 8 methods for data fetching and charting
-- Auto-creates `analytics_reports/` directory
+- `AnalyticsDashboard`: Manages database connections and visualization generation
+- 26 methods: 13 data fetch methods + 13 visualization methods
+- Generates all 15 reports in one execution
+- Auto-creates `docs/` directory with HTML files
 
 **Features:**
 - Custom hover templates with all relevant metrics

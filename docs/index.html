@@ -183,6 +183,7 @@
         
         <h2>📊 Reports</h2>
         <div class="report-grid">
+            <!-- BASIC REPORTS (1-5) -->
             <div class="report-card">
                 <a href="01_driver_efficiency.html">
                     <div class="report-icon">📊</div>
@@ -220,6 +221,79 @@
                     <div class="report-icon">💰</div>
                     <div class="report-title">VIP Revenue Distribution</div>
                     <div class="report-description">Revenue percentage split among top 5 VIP customers. Hover for detailed metrics.</div>
+                </a>
+            </div>
+
+            <!-- ADVANCED REPORTS (6-15) - WINDOW FUNCTIONS -->
+            <div class="report-card">
+                <a href="06_driver_leaderboard.html">
+                    <div class="report-icon">🏆</div>
+                    <div class="report-title">Driver Leaderboard</div>
+                    <div class="report-description">ROW_NUMBER-based efficiency ranking. Unique rank for every driver, no ties.</div>
+                </a>
+            </div>
+
+            <div class="report-card">
+                <a href="07_revenue_tier_ranks.html">
+                    <div class="report-icon">🎯</div>
+                    <div class="report-title">Revenue Tier Ranks</div>
+                    <div class="report-description">RANK-based revenue tiers for drivers. Allows ties at same revenue level.</div>
+                </a>
+            </div>
+
+            <div class="report-card">
+                <a href="08_quality_tier_distribution.html">
+                    <div class="report-icon">⚡</div>
+                    <div class="report-title">Quality Tier Distribution</div>
+                    <div class="report-description">DENSE_RANK quality tiers. Consolidated rankings with no gaps.</div>
+                </a>
+            </div>
+
+            <div class="report-card">
+                <a href="09_commission_percentiles.html">
+                    <div class="report-icon">📊</div>
+                    <div class="report-title">Commission Percentiles</div>
+                    <div class="report-description">PERCENT_RANK commission allocation. Shows relative position as percentage (0-100%).</div>
+                </a>
+            </div>
+
+            <div class="report-card">
+                <a href="10_driver_efficiency_quartiles.html">
+                    <div class="report-icon">📉</div>
+                    <div class="report-title">Efficiency Quartiles</div>
+                    <div class="report-description">CUME_DIST quartile segmentation. Shows cumulative distribution of driver performance.</div>
+                </a>
+            </div>
+
+            <div class="report-card">
+                <a href="11_customer_value_segments.html">
+                    <div class="report-icon">🎨</div>
+                    <div class="report-title">Customer Value Segments</div>
+                    <div class="report-description">NTILE customer segmentation into quartiles. Groups customers by spending quartiles.</div>
+                </a>
+            </div>
+
+            <div class="report-card">
+                <a href="13_driver_progression.html">
+                    <div class="report-icon">📍</div>
+                    <div class="report-title">Driver Progression</div>
+                    <div class="report-description">FIRST_VALUE onboarding analysis. Shows first ride earnings vs. current performance.</div>
+                </a>
+            </div>
+
+            <div class="report-card">
+                <a href="14_quality_trend_alerts.html">
+                    <div class="report-icon">⚠️</div>
+                    <div class="report-title">Quality Trend Alerts</div>
+                    <div class="report-description">LAST_VALUE quality degradation detection. Identifies drivers with declining ratings.</div>
+                </a>
+            </div>
+
+            <div class="report-card">
+                <a href="15_driver_milestones.html">
+                    <div class="report-icon">🎯</div>
+                    <div class="report-title">Driver Milestones</div>
+                    <div class="report-description">NTH_VALUE lifecycle analysis. Tracks driver progression through key ride milestones (1st, 10th, 50th, 100th ride).</div>
                 </a>
             </div>
         </div>
